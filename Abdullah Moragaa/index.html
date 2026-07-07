@@ -545,11 +545,17 @@
           border-color 0.25s ease,
           transform 0.25s ease;
       }
+      
+@media (hover: hover) {
       .card:hover {
         border-color: var(--accent);
         transform: translateY(-4px);
       }
+
+      }
+
       .card__frame {
+
         aspect-ratio: 4/3;
         background: linear-gradient(
           135deg,
@@ -1213,7 +1219,22 @@
           grid-template-columns: 1fr;
         }
       }
-    </style>
+    
+@media (hover: none) and (pointer: coarse){
+  *{ -webkit-tap-highlight-color: transparent; }
+  .card:hover,.btn:hover,.gallery:hover,.pd-toggle:hover,.nav a:hover{
+    transform:none !important;
+  }
+}
+html,body{
+max-width:100%;
+overflow-x:hidden;
+}
+*,*::before,*::after{
+max-width:100%;
+}
+
+</style>
   </head>
   <body>
     <div
