@@ -1,0 +1,2594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdullah Moragaa — Shopify &amp; CRO Specialist</title>
+    <meta
+      name="description"
+      content="Shopify &amp; CRO specialist helping merchants build better stores — improved shopping experience, faster performance, and more conversions. Based in Egypt."
+    />
+    <meta
+      property="og:title"
+      content="Abdullah Moragaa — Shopify &amp; CRO Specialist"
+    />
+    <meta
+      property="og:description"
+      content="I build Shopify stores that look better, load faster, and convert more customers."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============ TOKENS ============ */
+      :root {
+        --bg: #0e0d12;
+        --bg-soft: #121118;
+        --surface: #18171f;
+        --surface-2: #1f1e28;
+        --border: #2a2832;
+        --border-soft: #221f2a;
+        --text: #f5f3f7;
+        --text-muted: #9c98a8;
+        --text-faint: #615d6e;
+        --accent: #7c5cff;
+        --accent-2: #5b3df6;
+        --accent-soft: rgba(124, 92, 255, 0.14);
+        --accent-soft-2: rgba(124, 92, 255, 0.06);
+        --live: #3ddc97;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+
+        --container: 1120px;
+        --radius-lg: 18px;
+        --radius-md: 12px;
+        --radius-sm: 7px;
+
+        --space-1: 0.5rem;
+        --space-2: 1rem;
+        --space-3: 1.5rem;
+        --space-4: 2.5rem;
+        --space-5: 4rem;
+        --space-6: 6.5rem;
+      }
+
+      /* ============ RESET ============ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: inherit;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ============ UTILITIES ============ */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      .wrap {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 var(--space-3);
+      }
+      .section {
+        padding: var(--space-6) 0;
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        color: var(--accent);
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: var(--space-2);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+
+      /* ============ REVEAL ============ */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ============ NAV ============ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        border-bottom: 1px solid transparent;
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .nav.scrolled {
+        background: rgba(14, 13, 18, 0.82);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .nav__inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 var(--space-3);
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav__mark {
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .nav__mark span {
+        color: var(--accent);
+      }
+      .nav__links {
+        display: flex;
+        gap: var(--space-4);
+        align-items: center;
+      }
+      .nav__links a {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        padding: 0.3rem 0;
+        transition: color 0.2s ease;
+      }
+      .nav__links a:hover {
+        color: var(--text);
+      }
+      .nav__cta {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+      .nav__cta:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft-2);
+      }
+      .nav__burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        width: 26px;
+      }
+      .nav__burger span {
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition:
+          transform 0.25s ease,
+          opacity 0.25s ease;
+      }
+
+      /* ============ HERO ============ */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 110px;
+        padding-bottom: var(--space-5);
+        position: relative;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 600px;
+        background: radial-gradient(
+          closest-side,
+          var(--accent-soft),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: var(--space-5);
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .hero__title {
+        font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+        margin-bottom: var(--space-3);
+      }
+      .hero__title em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .hero__sub {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        max-width: 46ch;
+        margin-bottom: var(--space-4);
+      }
+      .hero__actions {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+      }
+      .hero__confirm {
+        margin-top: var(--space-2);
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+      .hero__confirm span {
+        display: block;
+      }
+
+      /* ============ BUTTONS ============ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.4rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .btn--primary {
+        background: var(--accent);
+        color: #0e0d12;
+      }
+      .btn--primary:hover {
+        transform: translateY(-2px);
+        background: #8e70ff;
+      }
+      .btn--ghost {
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .btn--ghost:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* ============ TERMINAL ============ */
+      .window {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+      }
+      .window__bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 0.9rem;
+        border-bottom: 1px solid var(--border-soft);
+        background: var(--surface-2);
+      }
+      .window__dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--border);
+      }
+      .window__dot:nth-child(1) {
+        background: #ff6159;
+      }
+      .window__dot:nth-child(2) {
+        background: #ffc02e;
+      }
+      .window__dot:nth-child(3) {
+        background: #28c941;
+      }
+      .window__path {
+        margin-left: 0.6rem;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-faint);
+      }
+      .window__body {
+        padding: 1.3rem 1.4rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        line-height: 1.85;
+        min-height: 230px;
+      }
+      .window__body .c {
+        color: var(--text-faint);
+      }
+      .window__body .k {
+        color: var(--accent);
+      }
+      .window__body .s {
+        color: var(--live);
+      }
+      .window__body .t {
+        color: var(--text-muted);
+      }
+      .cursor {
+        display: inline-block;
+        width: 7px;
+        height: 1em;
+        background: var(--accent);
+        vertical-align: text-bottom;
+        animation: blink 1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ============ SECTION HEADS ============ */
+      .head {
+        max-width: 60ch;
+        margin-bottom: var(--space-5);
+      }
+      .head h2 {
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+      }
+      .head p {
+        color: var(--text-muted);
+        margin-top: 0.6rem;
+      }
+
+      /* ============ ABOUT ============ */
+      .about__grid {
+        display: grid;
+        grid-template-columns: 0.6fr 1.4fr;
+        gap: var(--space-5);
+        align-items: start;
+      }
+      .avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: linear-gradient(155deg, var(--surface-2), var(--bg-soft));
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--accent);
+        position: relative;
+      }
+      .avatar::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 1px dashed var(--border);
+      }
+      .about__bio {
+        color: var(--text-muted);
+        font-size: 1.02rem;
+        margin-bottom: var(--space-3);
+      }
+      .about__bio strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .facts {
+        display: flex;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+        margin-top: var(--space-2);
+      }
+      .fact dt {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-faint);
+        margin-bottom: 0.3rem;
+      }
+      .fact dd {
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+
+      /* ============ SERVICES ============ */
+      .services__two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+      }
+      .service-group {
+        border-top: 1px solid var(--border);
+        padding-top: var(--space-2);
+      }
+      .service-group__label {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-faint);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+      .service-group__list li {
+        font-size: 0.96rem;
+        color: var(--text);
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-soft);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .service-group__list li::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+      .service-group__list li:last-child {
+        border-bottom: none;
+      }
+
+      /* ============ WORK / CARDS ============ */
+      .work__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+        align-items: start;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          border-color 0.25s ease,
+          transform 0.25s ease;
+      }
+      .card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+      }
+      .card__frame {
+        aspect-ratio: 4/3;
+        background: linear-gradient(
+          135deg,
+          var(--surface-2) 0%,
+          var(--bg-soft) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-soft);
+        position: relative;
+      }
+      .card__frame .window__bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+      .card__frame-label {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--text-faint);
+        text-align: center;
+        padding: 0 1rem;
+        margin-top: 1.4rem;
+      }
+
+      /* ============ PROJECT GALLERY ============ */
+      .gallery {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: pan-x;
+      }
+      .gallery:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: -2px;
+      }
+      .gallery__track {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .gallery__slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+        will-change: transform;
+      }
+      .gallery__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        user-select: none;
+        pointer-events: none;
+      }
+      .gallery__slide--broken img {
+        display: none;
+      }
+      .gallery__slide--broken::after {
+        content: attr(data-fallback-label);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 1.2rem;
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--text-faint);
+        background: linear-gradient(
+          135deg,
+          var(--surface-2) 0%,
+          var(--bg-soft) 100%
+        );
+      }
+      .gallery__nav {
+        position: absolute;
+        right: 0.6rem;
+        z-index: 3;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(24, 23, 31, 0.72);
+        border: 1px solid var(--border);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        transition:
+          border-color 0.2s ease,
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .gallery__nav:hover {
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
+      .gallery__nav:disabled {
+        opacity: 0.32;
+        cursor: default;
+        transform: none;
+      }
+      .gallery__nav--up {
+        top: 0.6rem;
+      }
+      .gallery__nav--down {
+        bottom: 0.6rem;
+      }
+      .gallery__dots {
+        position: absolute;
+        left: 0.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .gallery__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        padding: 0;
+        background: rgba(245, 243, 247, 0.35);
+        border: none;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+      .gallery__dot.is-active {
+        background: var(--accent);
+        transform: scale(1.35);
+      }
+
+      /* ============ LIGHTBOX ============ */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(9, 8, 12, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-3);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+      }
+      .lightbox.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .lightbox__stage {
+        position: relative;
+        aspect-ratio: 4/3;
+        width: min(92vw, 117.33vh, 900px);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+      }
+      .lightbox__stage .gallery__nav {
+        width: 38px;
+        height: 38px;
+      }
+      .lightbox__stage .gallery__dot {
+        width: 7px;
+        height: 7px;
+      }
+      .lightbox__close {
+        position: absolute;
+        top: -0.4rem;
+        right: -0.4rem;
+        z-index: 1001;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 1.3rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          border-color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .lightbox__close:hover {
+        border-color: var(--accent);
+        transform: scale(1.06);
+      }
+      .card__body {
+        padding: 1.4rem;
+      }
+      .card__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+      }
+      .card__title {
+        font-size: 1.05rem;
+      }
+      .status {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.25rem 0.55rem;
+        border-radius: 99px;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+      .status--client {
+        color: var(--accent);
+        border-color: rgba(124, 92, 255, 0.35);
+      }
+      .status--concept {
+        color: #f0a429;
+        border-color: rgba(240, 164, 41, 0.35);
+      }
+      .card__desc {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        margin-bottom: 1rem;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.1rem;
+      }
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: var(--surface-2);
+        border: 1px solid var(--border-soft);
+        padding: 0.25rem 0.55rem;
+        border-radius: var(--radius-sm);
+      }
+      .card__link {
+        font-size: 0.88rem;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .card__link svg {
+        transition: transform 0.2s ease;
+      }
+      .card:hover .card__link svg {
+        transform: translate(2px, -2px);
+      }
+
+      /* ============ DEMO ACCESS ============ */
+      .demo-access {
+        background: var(--surface-2);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+        margin: 0.8rem 0;
+      }
+      .demo-access__label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-faint);
+        margin-bottom: 0.4rem;
+      }
+      .demo-access__row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .demo-pass {
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        padding: 0.2rem 0.6rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        transition: border-color 0.2s ease;
+        user-select: all;
+      }
+      .demo-pass:hover,
+      .demo-pass:focus-visible {
+        border-color: var(--accent);
+        outline: none;
+      }
+      .btn--copy {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 0.3rem 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .btn--copy:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .demo-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn--demo-open {
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 0.55rem 1rem;
+        background: var(--accent);
+        color: #0e0d12;
+        border-radius: var(--radius-sm);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        cursor: pointer;
+        border: none;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+      .btn--demo-open:hover {
+        transform: translateY(-1px);
+        background: #8e70ff;
+      }
+
+      /* ============ PROJECT DETAILS ACCORDION ============ */
+      .project-details {
+        margin-top: 1.1rem;
+        border-top: 1px solid var(--border-soft);
+        padding-top: 0.2rem;
+      }
+      .pd-toggle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0.6rem 0;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-faint);
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-align: left;
+        transition: color 0.2s ease;
+      }
+      .pd-toggle:hover {
+        color: var(--text-muted);
+      }
+      .pd-toggle:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 3px;
+      }
+      .pd-chevron {
+        margin-left: auto;
+        flex-shrink: 0;
+        color: var(--accent);
+        transition: transform 0.3s ease;
+      }
+      .pd-toggle[aria-expanded="true"] .pd-chevron {
+        transform: rotate(180deg);
+      }
+      .pd-content {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition:
+          max-height 0.32s ease,
+          opacity 0.25s ease;
+      }
+      .pd-body {
+        padding: 0.5rem 0 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .pd-row h4 {
+        font-family: var(--font-mono);
+        font-size: 0.63rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-faint);
+        margin-bottom: 0.28rem;
+      }
+      .pd-row p {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+      .pd-row ul {
+        margin: 0;
+        padding: 0;
+      }
+      .pd-row ul li {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        padding: 0.07rem 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .pd-row ul li::before {
+        content: "·";
+        color: var(--accent);
+        flex-shrink: 0;
+        line-height: 1.5;
+      }
+      .pd-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.1rem;
+      }
+
+      /* ============ WORK DISCLAIMER ============ */
+      .work-disclaimer {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-faint);
+        text-align: center;
+        margin-top: var(--space-3);
+        line-height: 1.6;
+      }
+
+      /* ============ PROCESS ============ */
+      .process__row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-2);
+        position: relative;
+      }
+      .process__row::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        left: calc(10% + 0.5rem);
+        right: calc(10% + 0.5rem);
+        height: 1px;
+        background: var(--border-soft);
+        z-index: 0;
+      }
+      .process__step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .process__num {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--accent);
+        margin-bottom: var(--space-2);
+        flex-shrink: 0;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .process__step:hover .process__num {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+      }
+      .process__label {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.3rem;
+      }
+      .process__desc {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      /* ============ CONTACT ============ */
+      .contact {
+        text-align: center;
+      }
+      .contact h2 {
+        font-size: clamp(1.9rem, 4.5vw, 3rem);
+        max-width: 22ch;
+        margin: 0 auto var(--space-2);
+      }
+      .contact p {
+        color: var(--text-muted);
+        max-width: 50ch;
+        margin: 0 auto var(--space-4);
+      }
+      .contact__actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-3);
+      }
+
+      /* ============ FOOTER ============ */
+      .footer {
+        border-top: 1px solid var(--border-soft);
+        padding: var(--space-3) 0;
+      }
+      .footer__inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 var(--space-3);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .footer p {
+        font-size: 0.82rem;
+        color: var(--text-faint);
+      }
+
+      /* ============ TOAST ============ */
+      .toast {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background: var(--surface-2);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius-sm);
+        padding: 0.6rem 1.2rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--accent);
+        transform: translateY(120%);
+        opacity: 0;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      /* ============ RESPONSIVE ============ */
+      @media (max-width: 880px) {
+        .hero__grid {
+          grid-template-columns: 1fr;
+        }
+        .about__grid {
+          grid-template-columns: 1fr;
+        }
+        .work__grid {
+          grid-template-columns: 1fr;
+        }
+        .services__two {
+          grid-template-columns: 1fr;
+        }
+        .process__row {
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-3);
+        }
+        .process__row::before {
+          display: none;
+        }
+        .nav__links {
+          position: fixed;
+          top: 68px;
+          left: 0;
+          right: 0;
+          background: var(--bg-soft);
+          border-bottom: 1px solid var(--border-soft);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: var(--space-3);
+          gap: var(--space-2);
+          transform: translateY(-130%);
+          transition: transform 0.3s ease;
+        }
+        .nav__links.open {
+          transform: translateY(0);
+        }
+        .nav__burger {
+          display: flex;
+        }
+        .nav__burger.open span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        .nav__burger.open span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav__burger.open span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+      @media (max-width: 580px) {
+        .process__row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero__actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .contact__actions {
+          flex-direction: column;
+          align-items: center;
+        }
+        .gallery__nav {
+          width: 26px;
+          height: 26px;
+        }
+        .lightbox__stage {
+          width: min(100%, 109.33vh);
+        }
+      }
+      @media (max-width: 380px) {
+        .process__row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="toast"
+      id="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Project screenshot viewer"
+    >
+      <div class="lightbox__stage" id="lightboxStage"></div>
+      <button
+        class="lightbox__close"
+        type="button"
+        id="lightboxClose"
+        aria-label="Close screenshot viewer"
+      >
+        &times;
+      </button>
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="#home" class="nav__mark">Abdullah Moragaa<span>.</span></a>
+        <ul class="nav__links" id="navLinks" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact" class="nav__cta">Get in touch</a></li>
+        </ul>
+        <button
+          class="nav__burger"
+          id="burger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <!-- ══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+      <section class="hero" id="home" aria-labelledby="hero-heading">
+        <div class="wrap hero__grid">
+          <div>
+            <div class="eyebrow">Shopify &amp; CRO Specialist</div>
+            <h1 class="hero__title" id="hero-heading">
+              I build Shopify stores that look better, load faster, and
+              <em>convert more customers.</em>
+            </h1>
+            <p class="hero__sub">
+              Whether you're launching a new Shopify store or improving an
+              existing one, I focus on better UX, faster performance, and
+              conversion-focused development that helps turn more visitors into
+              customers.
+            </p>
+            <div class="hero__actions">
+              <a href="#contact" class="btn btn--primary"
+                >Let's Build Your Store</a
+              >
+              <a href="#work" class="btn btn--ghost">View My Work</a>
+            </div>
+            <p
+              class="hero__confirm"
+              aria-label="I work with both new and existing stores"
+            >
+              <span>✓ Building a new Shopify store?</span>
+              <span>✓ Improving an existing one?</span>
+              I can help with both.
+            </p>
+          </div>
+          <div class="window" id="terminal" aria-hidden="true">
+            <div class="window__bar">
+              <span class="window__dot"></span><span class="window__dot"></span
+              ><span class="window__dot"></span>
+              <span class="window__path"
+                >your-store / sections / product.liquid</span
+              >
+            </div>
+            <div class="window__body" id="terminalBody"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════ ABOUT ══════════════════════════════════════ -->
+      <section class="section about" id="about" aria-labelledby="about-heading">
+        <div class="wrap about__grid">
+          <div class="reveal">
+            <div class="avatar" aria-hidden="true">AM</div>
+          </div>
+          <div class="reveal">
+            <div class="eyebrow">About</div>
+            <h2 id="about-heading" class="sr-only">About Abdullah Moragaa</h2>
+            <p class="about__bio">
+              I'm <strong>Abdullah Moragaa</strong>, a Shopify &amp; CRO
+              specialist based in Egypt.<br /><br />I build stores that work
+              well for merchants and feel right for their customers — with clean
+              product pages, intuitive navigation, and fast, reliable
+              performance.<br /><br />My approach starts with the customer
+              journey. Every customization is designed to remove friction, build
+              trust, and help more visitors become customers.
+            </p>
+            <dl class="facts">
+              <div class="fact">
+                <dt>Location</dt>
+                <dd>Egypt</dd>
+              </div>
+              <div class="fact">
+                <dt>Focus</dt>
+                <dd>Shopify &amp; CRO</dd>
+              </div>
+              <div class="fact">
+                <dt>Languages</dt>
+                <dd>Arabic &amp; English</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════ SERVICES ══════════════════════════════════════ -->
+      <section class="section" id="services" aria-labelledby="services-heading">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2 id="services-heading">Services</h2>
+            <p>
+              I work with merchants at two stages: building a new store from the
+              ground up, or improving one that's already live.
+            </p>
+          </div>
+          <div class="services__two">
+            <div class="service-group reveal">
+              <h3 class="service-group__label">Building a New Store</h3>
+              <ul class="service-group__list">
+                <li>Shopify Store Development</li>
+                <li>Theme Setup &amp; Customization</li>
+                <li>Custom Shopify Sections</li>
+                <li>Store Launch</li>
+              </ul>
+            </div>
+            <div class="service-group reveal">
+              <h3 class="service-group__label">Improving an Existing Store</h3>
+              <ul class="service-group__list">
+                <li>Product Page Optimization</li>
+                <li>Store Speed Optimization</li>
+                <li>UX Improvements</li>
+                <li>CRO-focused Enhancements</li>
+                <li>Metafields &amp; Dynamic Content</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════ FEATURED WORK ══════════════════════════════════════ -->
+      <section class="section work" id="work" aria-labelledby="work-heading">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2 id="work-heading">Featured Work</h2>
+            <p>
+              A mix of client work and concept projects built to practice
+              ecommerce layouts and Shopify development.
+            </p>
+          </div>
+          <div class="work__grid">
+            <!-- ── Sh3ban Car Seat ── -->
+            <article
+              class="card reveal"
+              aria-label="Sh3ban Car Seat — Client Project"
+            >
+              <div class="card__frame">
+                <div class="window__bar" aria-hidden="true">
+                  <span class="window__dot"></span
+                  ><span class="window__dot"></span
+                  ><span class="window__dot"></span>
+                </div>
+                <div
+                  class="gallery"
+                  data-gallery
+                  data-images="images/sh3ban/sh3ban1.webp,images/sh3ban/sh3ban2.webp,images/sh3ban/sh3ban3.webp,images/sh3ban/sh3ban4.webp,images/sh3ban/sh3ban5.webp"
+                  data-alt="Sh3ban Car Seat storefront"
+                  tabindex="0"
+                  role="group"
+                  aria-label="Sh3ban Car Seat screenshots — scroll, swipe or use arrow keys to browse, click to view fullscreen"
+                ></div>
+              </div>
+              <div class="card__body">
+                <div class="card__top">
+                  <h3 class="card__title">Sh3ban Car Seat</h3>
+                  <span class="status status--client">Client Project</span>
+                </div>
+                <p class="card__desc">
+                  Redesigned the Shopify storefront with a focus on theme
+                  customization, user experience and performance improvements.
+                </p>
+                <div class="tags">
+                  <span class="tag">Liquid</span>
+                  <span class="tag">Dawn Theme</span>
+                  <span class="tag">UX</span>
+                  <span class="tag">Performance</span>
+                </div>
+                <a
+                  href="https://sh3ban-carseat.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="card__link"
+                >
+                  Visit Store
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17 17 7M7 7h10v10" />
+                  </svg>
+                </a>
+                <!-- Project Details -->
+                <div class="project-details">
+                  <button
+                    class="pd-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pd-sh3ban"
+                  >
+                    Project Details
+                    <svg
+                      class="pd-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="pd-content" id="pd-sh3ban" aria-hidden="true">
+                    <div class="pd-body">
+                      <div class="pd-row">
+                        <h4>Project Goal</h4>
+                        <p>
+                          Improve the storefront UX and trust signals to help
+                          more visitors complete a purchase.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>My Role</h4>
+                        <p>
+                          Theme customization and UX improvements on a live
+                          client store.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>What I Worked On</h4>
+                        <ul>
+                          <li>
+                            Customized the Dawn theme layout and visual
+                            hierarchy
+                          </li>
+                          <li>
+                            Built a sticky Add-to-Cart bar for better mobile
+                            conversion
+                          </li>
+                          <li>
+                            Added trust signals and restructured the product
+                            page
+                          </li>
+                          <li>Rebuilt mobile layout and navigation flow</li>
+                          <li>
+                            Integrated a WhatsApp contact path for local
+                            customers
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="pd-row">
+                        <h4>Tools &amp; Technologies</h4>
+                        <div class="pd-tags">
+                          <span class="tag">Shopify</span>
+                          <span class="tag">Liquid</span>
+                          <span class="tag">Dawn Theme</span>
+                          <span class="tag">HTML / CSS</span>
+                          <span class="tag">JavaScript</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ── Lanott ── -->
+            <article class="card reveal" aria-label="Lanott — Concept Project">
+              <div class="card__frame">
+                <div class="window__bar" aria-hidden="true">
+                  <span class="window__dot"></span
+                  ><span class="window__dot"></span
+                  ><span class="window__dot"></span>
+                </div>
+                <div
+                  class="gallery"
+                  data-gallery
+                  data-images="images/lanott/lanott1.webp,images/lanott/lanott2.webp,images/lanott/lanott3.webp,images/lanott/lanott4.webp,images/lanott/lanott5.webp,images/lanott/lanott6.webp,images/lanott/lanott7.webp,images/lanott/lanott8.webp,images/lanott/lanott9.webp"
+                  data-alt="Lanott concept store preview"
+                  tabindex="0"
+                  role="group"
+                  aria-label="Lanott screenshots — scroll, swipe or use arrow keys to browse, click to view fullscreen"
+                ></div>
+              </div>
+              <div class="card__body">
+                <div class="card__top">
+                  <h3 class="card__title">Lanott</h3>
+                  <span class="status status--concept">Concept Project</span>
+                </div>
+                <p class="card__desc">
+                  UI recreation inspired by an existing Shopify store. Built to
+                  practice premium ecommerce layouts, navigation and shopping
+                  experience.
+                </p>
+                <div class="tags">
+                  <span class="tag">Shopify</span>
+                  <span class="tag">Liquid</span>
+                  <span class="tag">UX</span>
+                </div>
+                <div
+                  class="demo-access"
+                  role="group"
+                  aria-label="Demo access for Lanott"
+                >
+                  <p class="demo-access__label">Demo Password</p>
+                  <div class="demo-access__row">
+                    <code
+                      class="demo-pass"
+                      role="button"
+                      tabindex="0"
+                      title="Click to copy"
+                      aria-label="Demo password: 1 — click to copy"
+                      >1</code
+                    >
+                    <button
+                      class="btn--copy"
+                      type="button"
+                      data-password="1"
+                      aria-label="Copy demo password"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-actions">
+                  <button
+                    class="btn--demo-open"
+                    type="button"
+                    data-url="https://lanott-re.myshopify.com/"
+                    data-password="1"
+                    aria-label="Copy password and open Lanott demo"
+                  >
+                    Open Demo
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" />
+                    </svg>
+                  </button>
+                </div>
+                <!-- Project Details -->
+                <div class="project-details">
+                  <button
+                    class="pd-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pd-lanott"
+                  >
+                    Project Details
+                    <svg
+                      class="pd-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="pd-content" id="pd-lanott" aria-hidden="true">
+                    <div class="pd-body">
+                      <div class="pd-row">
+                        <h4>Project Goal</h4>
+                        <p>
+                          Recreate a premium ecommerce layout to practice
+                          high-end Shopify store design and navigation patterns.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>My Role</h4>
+                        <p>
+                          Full concept store build — design and development.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>What I Worked On</h4>
+                        <ul>
+                          <li>Homepage layout and hero section design</li>
+                          <li>Navigation structure and mobile menu</li>
+                          <li>Product page hierarchy and visual layout</li>
+                          <li>Collection page and product grid</li>
+                          <li>Responsive design across all breakpoints</li>
+                        </ul>
+                      </div>
+                      <div class="pd-row">
+                        <h4>Tools &amp; Technologies</h4>
+                        <div class="pd-tags">
+                          <span class="tag">Shopify</span>
+                          <span class="tag">Liquid</span>
+                          <span class="tag">HTML / CSS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ── Linah Farms ── -->
+            <article
+              class="card reveal"
+              aria-label="Linah Farms — Concept Project"
+            >
+              <div class="card__frame">
+                <div class="window__bar" aria-hidden="true">
+                  <span class="window__dot"></span
+                  ><span class="window__dot"></span
+                  ><span class="window__dot"></span>
+                </div>
+                <div
+                  class="gallery"
+                  data-gallery
+                  data-images="images/linah-farms/linahfarms1.webp,images/linah-farms/linahfarms2.webp,images/linah-farms/linahfarms3.webp,images/linah-farms/linahfarms4.webp,images/linah-farms/linahfarms5.webp,images/linah-farms/linahfarms6.webp"
+                  data-alt="Linah Farms concept store preview"
+                  tabindex="0"
+                  role="group"
+                  aria-label="Linah Farms screenshots — scroll, swipe or use arrow keys to browse, click to view fullscreen"
+                ></div>
+              </div>
+              <div class="card__body">
+                <div class="card__top">
+                  <h3 class="card__title">Linah Farms</h3>
+                  <span class="status status--concept">Concept Project</span>
+                </div>
+                <p class="card__desc">
+                  Practice project focused on clean navigation, product
+                  presentation and ecommerce structure.
+                </p>
+                <div class="tags">
+                  <span class="tag">Shopify</span>
+                  <span class="tag">Liquid</span>
+                  <span class="tag">Dawn Theme</span>
+                </div>
+                <div
+                  class="demo-access"
+                  role="group"
+                  aria-label="Demo access for Linah Farms"
+                >
+                  <p class="demo-access__label">Demo Password</p>
+                  <div class="demo-access__row">
+                    <code
+                      class="demo-pass"
+                      role="button"
+                      tabindex="0"
+                      title="Click to copy"
+                      aria-label="Demo password: 1 — click to copy"
+                      >1</code
+                    >
+                    <button
+                      class="btn--copy"
+                      type="button"
+                      data-password="1"
+                      aria-label="Copy demo password"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-actions">
+                  <button
+                    class="btn--demo-open"
+                    type="button"
+                    data-url="https://linahfarmsre.myshopify.com/"
+                    data-password="1"
+                    aria-label="Copy password and open Linah Farms demo"
+                  >
+                    Open Demo
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" />
+                    </svg>
+                  </button>
+                </div>
+                <!-- Project Details -->
+                <div class="project-details">
+                  <button
+                    class="pd-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pd-linah"
+                  >
+                    Project Details
+                    <svg
+                      class="pd-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="pd-content" id="pd-linah" aria-hidden="true">
+                    <div class="pd-body">
+                      <div class="pd-row">
+                        <h4>Project Goal</h4>
+                        <p>
+                          Practice building a clean ecommerce structure and
+                          product presentation for a fresh produce brand.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>My Role</h4>
+                        <p>
+                          Full concept store build — design and development.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>What I Worked On</h4>
+                        <ul>
+                          <li>Store setup and theme configuration</li>
+                          <li>Product page design and information layout</li>
+                          <li>Collection organization and navigation</li>
+                          <li>Clean, minimal layout suited to the brand</li>
+                          <li>Mobile-first design throughout</li>
+                        </ul>
+                      </div>
+                      <div class="pd-row">
+                        <h4>Tools &amp; Technologies</h4>
+                        <div class="pd-tags">
+                          <span class="tag">Shopify</span>
+                          <span class="tag">Liquid</span>
+                          <span class="tag">Dawn Theme</span>
+                          <span class="tag">HTML / CSS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ── Dott Jeans ── -->
+            <article
+              class="card reveal"
+              aria-label="Dott Jeans — Concept Project"
+            >
+              <div class="card__frame">
+                <div class="window__bar" aria-hidden="true">
+                  <span class="window__dot"></span
+                  ><span class="window__dot"></span
+                  ><span class="window__dot"></span>
+                </div>
+                <div
+                  class="gallery"
+                  data-gallery
+                  data-images="images/dott-jeans/dott-jeans1.webp,images/dott-jeans/dott-jeans2.webp,images/dott-jeans/dott-jeans3.webp,images/dott-jeans/dott-jeans4.webp,images/dott-jeans/dott-jeans5.webp"
+                  data-alt="Dott Jeans concept store preview"
+                  tabindex="0"
+                  role="group"
+                  aria-label="Dott Jeans screenshots — scroll, swipe or use arrow keys to browse, click to view fullscreen"
+                ></div>
+              </div>
+              <div class="card__body">
+                <div class="card__top">
+                  <h3 class="card__title">Dott Jeans</h3>
+                  <span class="status status--concept">Concept Project</span>
+                </div>
+                <p class="card__desc">
+                  Fashion ecommerce practice project focused on collection
+                  pages, product discovery and mobile shopping experience.
+                </p>
+                <div class="tags">
+                  <span class="tag">Shopify</span>
+                  <span class="tag">Liquid</span>
+                  <span class="tag">Mobile UX</span>
+                </div>
+                <div
+                  class="demo-access"
+                  role="group"
+                  aria-label="Demo access for Dott Jeans"
+                >
+                  <p class="demo-access__label">Demo Password</p>
+                  <div class="demo-access__row">
+                    <code
+                      class="demo-pass"
+                      role="button"
+                      tabindex="0"
+                      title="Click to copy"
+                      aria-label="Demo password: 1 — click to copy"
+                      >1</code
+                    >
+                    <button
+                      class="btn--copy"
+                      type="button"
+                      data-password="1"
+                      aria-label="Copy demo password"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+                <div class="demo-actions">
+                  <button
+                    class="btn--demo-open"
+                    type="button"
+                    data-url="https://dott-jeans-re.myshopify.com/"
+                    data-password="1"
+                    aria-label="Copy password and open Dott Jeans demo"
+                  >
+                    Open Demo
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M7 7h10v10" />
+                    </svg>
+                  </button>
+                </div>
+                <!-- Project Details -->
+                <div class="project-details">
+                  <button
+                    class="pd-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pd-dott"
+                  >
+                    Project Details
+                    <svg
+                      class="pd-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="pd-content" id="pd-dott" aria-hidden="true">
+                    <div class="pd-body">
+                      <div class="pd-row">
+                        <h4>Project Goal</h4>
+                        <p>
+                          Practice fashion ecommerce UI focused on product
+                          discovery and mobile shopping.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>My Role</h4>
+                        <p>
+                          Full concept store build — design and development.
+                        </p>
+                      </div>
+                      <div class="pd-row">
+                        <h4>What I Worked On</h4>
+                        <ul>
+                          <li>
+                            Collection page design and product grid layout
+                          </li>
+                          <li>Product page with size and variant display</li>
+                          <li>Mobile navigation and shopping experience</li>
+                          <li>
+                            Visual hierarchy for a fashion brand aesthetic
+                          </li>
+                          <li>Category browsing and product discovery flow</li>
+                        </ul>
+                      </div>
+                      <div class="pd-row">
+                        <h4>Tools &amp; Technologies</h4>
+                        <div class="pd-tags">
+                          <span class="tag">Shopify</span>
+                          <span class="tag">Liquid</span>
+                          <span class="tag">HTML / CSS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="work-disclaimer">
+            Concept projects were recreated for learning and portfolio
+            purposes.<br />
+            Original brands, trademarks and assets belong to their respective
+            owners.
+          </p>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════ PROCESS ══════════════════════════════════════ -->
+      <section class="section" id="process" aria-labelledby="process-heading">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2 id="process-heading">How I work</h2>
+            <p>
+              A simple process that keeps things clear and moving forward at
+              every stage.
+            </p>
+          </div>
+          <div class="process__row reveal">
+            <div class="process__step">
+              <div class="process__num" aria-hidden="true">01</div>
+              <h3 class="process__label">Audit</h3>
+              <p class="process__desc">
+                Understand your store, your customers, and what needs to
+                improve.
+              </p>
+            </div>
+            <div class="process__step">
+              <div class="process__num" aria-hidden="true">02</div>
+              <h3 class="process__label">Plan</h3>
+              <p class="process__desc">
+                Define what to build or fix, in what order, and why.
+              </p>
+            </div>
+            <div class="process__step">
+              <div class="process__num" aria-hidden="true">03</div>
+              <h3 class="process__label">Build</h3>
+              <p class="process__desc">
+                Implement the work carefully, with your customers in mind.
+              </p>
+            </div>
+            <div class="process__step">
+              <div class="process__num" aria-hidden="true">04</div>
+              <h3 class="process__label">Test</h3>
+              <p class="process__desc">
+                Review everything across devices before anything goes live.
+              </p>
+            </div>
+            <div class="process__step">
+              <div class="process__num" aria-hidden="true">05</div>
+              <h3 class="process__label">Launch</h3>
+              <p class="process__desc">
+                Go live with a store that's ready for customers from day one.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════ CONTACT ══════════════════════════════════════ -->
+      <section
+        class="section contact"
+        id="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div class="wrap">
+          <div class="eyebrow" style="justify-content: center">
+            Get in touch
+          </div>
+          <h2 class="reveal" id="contact-heading">
+            Let's discuss your Shopify project.
+          </h2>
+          <p class="reveal">
+            I'm available for new projects. Whether you're starting from scratch
+            or improving an existing store — send me a message and let's talk.
+          </p>
+          <div class="contact__actions reveal">
+            <a
+              href="https://wa.me/201011080298"
+              target="_blank"
+              rel="noopener"
+              class="btn btn--primary"
+              >WhatsApp Me</a
+            >
+            <a href="mailto:abdalla04m@gmail.com" class="btn btn--ghost"
+              >Email Me</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <p>Abdullah Moragaa — © 2026</p>
+        <p>Shopify &amp; CRO Specialist · Egypt</p>
+      </div>
+    </footer>
+
+    <script>
+      /* ── Nav: scroll state + mobile menu ── */
+      const nav = document.getElementById("nav");
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          nav.classList.toggle("scrolled", window.scrollY > 10);
+        },
+        { passive: true },
+      );
+
+      burger.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        burger.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", String(open));
+        burger.setAttribute(
+          "aria-label",
+          open ? "Close navigation menu" : "Open navigation menu",
+        );
+      });
+
+      navLinks.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          burger.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+          burger.setAttribute("aria-label", "Open navigation menu");
+        });
+      });
+
+      /* ── Scroll reveal ── */
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const revealEls = document.querySelectorAll(".reveal");
+
+      if (reduced) {
+        revealEls.forEach((el) => el.classList.add("in"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+
+      /* ── Terminal typing effect ── */
+      const terminalBody = document.getElementById("terminalBody");
+      const lines = [
+        {
+          html: '<span class="c">{% comment %} Product section — your store {% endcomment %}</span>',
+        },
+        {
+          html: '<span class="k">&lt;section</span> <span class="t">id</span>=<span class="s">"product-hero"</span><span class="k">&gt;</span>',
+        },
+        {
+          html: '&nbsp;&nbsp;<span class="k">{% for</span> variant <span class="k">in</span> product.variants <span class="k">%}</span>',
+        },
+        {
+          html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="t">{{ variant.title | escape }}</span>',
+        },
+        {
+          html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="t">{{ variant.price | money }}</span>',
+        },
+        { html: '&nbsp;&nbsp;<span class="k">{% endfor %}</span>' },
+        { html: '<span class="k">&lt;/section&gt;</span>' },
+      ];
+
+      function typeTerminal() {
+        terminalBody.innerHTML = "";
+        if (reduced) {
+          terminalBody.innerHTML = lines
+            .map((l) => "<div>" + l.html + "</div>")
+            .join("");
+          return;
+        }
+        let li = 0;
+        function nextLine() {
+          if (li >= lines.length) return;
+          const div = document.createElement("div");
+          div.innerHTML = '<span class="cursor"></span>';
+          terminalBody.appendChild(div);
+          const full = lines[li].html;
+          let i = 0;
+          const timer = setInterval(() => {
+            i++;
+            div.innerHTML = full.slice(0, i) + '<span class="cursor"></span>';
+            if (i >= full.length) {
+              clearInterval(timer);
+              div.innerHTML = full;
+              li++;
+              setTimeout(nextLine, 200);
+            }
+          }, 10);
+        }
+        nextLine();
+      }
+      typeTerminal();
+
+      /* ── Demo access: copy + toast ── */
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text);
+        }
+        const el = document.createElement("textarea");
+        el.value = text;
+        el.style.cssText = "position:absolute;left:-9999px;top:-9999px;";
+        document.body.appendChild(el);
+        el.focus();
+        el.select();
+        try {
+          document.execCommand("copy");
+        } catch (e) {}
+        document.body.removeChild(el);
+        return Promise.resolve();
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => toast.classList.remove("show"), 2600);
+      }
+
+      document.querySelectorAll(".btn--copy").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pass = btn.dataset.password;
+          copyText(pass).then(() => {
+            const orig = btn.textContent;
+            btn.textContent = "Copied!";
+            showToast("Password copied!");
+            setTimeout(() => {
+              btn.textContent = orig;
+            }, 2000);
+          });
+        });
+      });
+
+      document.querySelectorAll(".demo-pass").forEach((el) => {
+        el.addEventListener("click", () => {
+          copyText(el.textContent.trim()).then(() =>
+            showToast("Password copied!"),
+          );
+        });
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            el.click();
+          }
+        });
+      });
+
+      document.querySelectorAll(".btn--demo-open").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const url = btn.dataset.url;
+          const pass = btn.dataset.password;
+          copyText(pass).then(() => {
+            showToast("Password copied — paste it on the next page.");
+            setTimeout(() => window.open(url, "_blank", "noopener"), 450);
+          });
+        });
+      });
+
+      /* ── Project details accordion ── */
+      document.querySelectorAll(".pd-toggle").forEach((btn) => {
+        const content = document.getElementById(
+          btn.getAttribute("aria-controls"),
+        );
+        if (!content) return;
+
+        btn.addEventListener("click", () => {
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+
+          if (!expanded) {
+            // Open
+            btn.setAttribute("aria-expanded", "true");
+            content.removeAttribute("aria-hidden");
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.opacity = "1";
+              });
+            });
+          } else {
+            // Close
+            btn.setAttribute("aria-expanded", "false");
+            content.style.maxHeight = "0";
+            content.style.opacity = "0";
+            setTimeout(() => content.setAttribute("aria-hidden", "true"), 330);
+          }
+        });
+      });
+
+      /* ── Equalize project-card heights within each row (desktop 2-col grid) ──
+     Keeps cards the same height by default, while still letting a single
+     card grow on its own when its "Project Details" panel is opened —
+     siblings no longer stretch along with it (see .work__grid{align-items:start}). */
+      (function () {
+        const grid = document.querySelector(".work__grid");
+        if (!grid) return;
+        const mq = window.matchMedia("(min-width:881px)");
+
+        function closedHeight(card) {
+          const pd = card.querySelector(".pd-content");
+          if (!pd || pd.getAttribute("aria-hidden") === "true")
+            return card.offsetHeight;
+          // Panel is currently open — temporarily measure the collapsed height.
+          const prevTransition = pd.style.transition;
+          const prevMaxHeight = pd.style.maxHeight;
+          const prevOpacity = pd.style.opacity;
+          pd.style.transition = "none";
+          pd.style.maxHeight = "0px";
+          pd.style.opacity = "0";
+          const h = card.offsetHeight;
+          pd.style.maxHeight = prevMaxHeight;
+          pd.style.opacity = prevOpacity;
+          void pd.offsetHeight; // force reflow before restoring the transition
+          pd.style.transition = prevTransition;
+          return h;
+        }
+
+        function equalize() {
+          const cards = Array.from(grid.querySelectorAll(":scope > .card"));
+          if (!cards.length) return;
+          cards.forEach((c) => {
+            c.style.minHeight = "";
+          });
+          if (!mq.matches) return; // single column on mobile — nothing to match
+          for (let i = 0; i < cards.length; i += 2) {
+            const row = cards.slice(i, i + 2);
+            const max = Math.max(...row.map(closedHeight));
+            row.forEach((c) => {
+              c.style.minHeight = max + "px";
+            });
+          }
+        }
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(equalize, 150);
+        });
+        window.addEventListener("load", equalize);
+        if (document.fonts && document.fonts.ready)
+          document.fonts.ready.then(equalize);
+        equalize();
+      })();
+
+      /* ── Project screenshot gallery (reusable component) ──
+     Each project card just needs: <div class="gallery" data-gallery data-images="a.webp,b.webp,...">
+     No JS edits are needed to add a new project — only the data-images list. */
+      (function () {
+        function svgChevron(direction) {
+          const rotation =
+            direction === "up" ? "" : ' style="transform:rotate(180deg)"';
+          return (
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"' +
+            rotation +
+            '><path d="M6 15l6-6 6 6"/></svg>'
+          );
+        }
+
+        class Gallery {
+          constructor(root, options) {
+            options = options || {};
+            this.root = root;
+            this.images = (root.dataset.images || "")
+              .split(",")
+              .map(function (s) {
+                return s.trim();
+              })
+              .filter(Boolean);
+            this.alt = root.dataset.alt || "Project screenshot";
+            this.isLightbox = !!options.isLightbox;
+            this.onActivate = options.onActivate || null; // called with current index when a slide is opened
+            this.current = 0;
+            this.suppressClick = false;
+            this._touchStartY = null;
+
+            if (!this.images.length) return;
+
+            this._build();
+            this._bind();
+            this._render(false);
+          }
+
+          _build() {
+            const root = this.root;
+
+            this.track = document.createElement("div");
+            this.track.className = "gallery__track";
+            root.appendChild(this.track);
+
+            this.slides = this.images.map((src, i) => {
+              const slide = document.createElement("div");
+              slide.className = "gallery__slide";
+              slide.dataset.fallbackLabel =
+                "Screenshot " + (i + 1) + " — add " + src;
+
+              const img = document.createElement("img");
+              img.alt =
+                this.alt + " — part " + (i + 1) + " of " + this.images.length;
+              img.loading = "lazy";
+              img.decoding = "async";
+              img.draggable = false;
+              img.dataset.src = src;
+              img.addEventListener("error", () =>
+                slide.classList.add("gallery__slide--broken"),
+              );
+
+              slide.appendChild(img);
+              this.track.appendChild(slide);
+              return { el: slide, img: img, loaded: false };
+            });
+
+            if (this.images.length > 1) {
+              this.upBtn = document.createElement("button");
+              this.upBtn.type = "button";
+              this.upBtn.className = "gallery__nav gallery__nav--up";
+              this.upBtn.setAttribute("aria-label", "Previous screenshot");
+              this.upBtn.innerHTML = svgChevron("up");
+              root.appendChild(this.upBtn);
+
+              this.downBtn = document.createElement("button");
+              this.downBtn.type = "button";
+              this.downBtn.className = "gallery__nav gallery__nav--down";
+              this.downBtn.setAttribute("aria-label", "Next screenshot");
+              this.downBtn.innerHTML = svgChevron("down");
+              root.appendChild(this.downBtn);
+
+              this.dotsWrap = document.createElement("div");
+              this.dotsWrap.className = "gallery__dots";
+              this.dotsWrap.setAttribute("role", "tablist");
+              this.dotsWrap.setAttribute("aria-label", "Screenshot pagination");
+              this.dots = this.images.map((_, i) => {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "gallery__dot";
+                dot.setAttribute("role", "tab");
+                dot.setAttribute("aria-label", "Go to screenshot " + (i + 1));
+                dot.addEventListener("click", (e) => {
+                  e.stopPropagation();
+                  this.goTo(i);
+                });
+                this.dotsWrap.appendChild(dot);
+                return dot;
+              });
+              root.appendChild(this.dotsWrap);
+            }
+          }
+
+          _bind() {
+            const root = this.root;
+
+            if (this.upBtn)
+              this.upBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                this.prev();
+              });
+            if (this.downBtn)
+              this.downBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                this.next();
+              });
+
+            let wheelLock = false;
+            root.addEventListener(
+              "wheel",
+              (e) => {
+                if (this.images.length < 2) return;
+                e.preventDefault();
+                if (wheelLock) return;
+                wheelLock = true;
+                if (e.deltaY > 0) this.next();
+                else this.prev();
+                setTimeout(() => {
+                  wheelLock = false;
+                }, 550);
+              },
+              { passive: false },
+            );
+
+            root.addEventListener("keydown", (e) => {
+              if (e.key === "ArrowUp") {
+                e.preventDefault();
+                this.prev();
+              } else if (e.key === "ArrowDown") {
+                e.preventDefault();
+                this.next();
+              }
+            });
+
+            root.addEventListener(
+              "touchstart",
+              (e) => {
+                this._touchStartY = e.touches[0].clientY;
+              },
+              { passive: true },
+            );
+
+            root.addEventListener(
+              "touchmove",
+              (e) => {
+                if (this._touchStartY === null) return;
+                if (Math.abs(e.touches[0].clientY - this._touchStartY) > 10)
+                  this.suppressClick = true;
+              },
+              { passive: true },
+            );
+
+            root.addEventListener(
+              "touchend",
+              (e) => {
+                if (this._touchStartY === null) return;
+                const dy = e.changedTouches[0].clientY - this._touchStartY;
+                if (Math.abs(dy) > 40) {
+                  if (dy < 0) this.next();
+                  else this.prev();
+                }
+                this._touchStartY = null;
+              },
+              { passive: true },
+            );
+          }
+
+          _ensureLoaded(i) {
+            const slide = this.slides[i];
+            if (!slide || slide.loaded) return;
+            slide.img.src = slide.img.dataset.src;
+            slide.loaded = true;
+          }
+
+          _render(animate) {
+            this.slides.forEach((slide, i) => {
+              slide.el.style.transition = animate === false ? "none" : "";
+              slide.el.style.transform =
+                "translateY(" + (i - this.current) * 100 + "%)";
+            });
+            // Lazy-load current slide + immediate neighbours only.
+            this._ensureLoaded(this.current);
+            this._ensureLoaded(Math.max(0, this.current - 1));
+            this._ensureLoaded(
+              Math.min(this.images.length - 1, this.current + 1),
+            );
+
+            if (this.dots) {
+              this.dots.forEach((dot, i) =>
+                dot.classList.toggle("is-active", i === this.current),
+              );
+            }
+            if (this.upBtn) this.upBtn.disabled = this.current === 0;
+            if (this.downBtn)
+              this.downBtn.disabled = this.current === this.images.length - 1;
+          }
+
+          goTo(i) {
+            if (!this.images.length) return;
+            this.current = Math.max(0, Math.min(this.images.length - 1, i));
+            this._render(true);
+          }
+
+          next() {
+            this.goTo(this.current + 1);
+          }
+          prev() {
+            this.goTo(this.current - 1);
+          }
+        }
+
+        /* ── Init a gallery for every project card ── */
+        const cardGalleries = [];
+        document.querySelectorAll("[data-gallery]").forEach((root) => {
+          const gallery = new Gallery(root, {});
+          cardGalleries.push(gallery);
+          root.addEventListener("click", () => {
+            if (gallery.suppressClick) {
+              gallery.suppressClick = false;
+              return;
+            }
+            openLightbox(gallery.images, gallery.current, gallery.alt);
+          });
+        });
+
+        /* ── Lightbox (single shared instance, reuses the same Gallery component) ── */
+        const lightboxEl = document.getElementById("lightbox");
+        const lightboxStage = document.getElementById("lightboxStage");
+        const lightboxClose = document.getElementById("lightboxClose");
+        let lightboxGallery = null;
+        let lastFocused = null;
+
+        function openLightbox(images, startIndex, alt) {
+          if (!images || !images.length) return;
+          lastFocused = document.activeElement;
+          lightboxStage.innerHTML = "";
+
+          const galleryRoot = document.createElement("div");
+          galleryRoot.className = "gallery gallery--lightbox";
+          galleryRoot.dataset.images = images.join(",");
+          galleryRoot.dataset.alt = alt || "Project screenshot";
+          galleryRoot.tabIndex = 0;
+          galleryRoot.setAttribute("role", "group");
+          galleryRoot.setAttribute(
+            "aria-label",
+            "Screenshot viewer — scroll, swipe or use arrow keys to browse",
+          );
+          lightboxStage.appendChild(galleryRoot);
+
+          lightboxGallery = new Gallery(galleryRoot, { isLightbox: true });
+          lightboxGallery.goTo(startIndex);
+
+          lightboxEl.classList.add("is-open");
+          lightboxEl.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          requestAnimationFrame(() => galleryRoot.focus());
+        }
+
+        function closeLightbox() {
+          if (!lightboxEl.classList.contains("is-open")) return;
+          lightboxEl.classList.remove("is-open");
+          lightboxEl.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          setTimeout(() => {
+            lightboxStage.innerHTML = "";
+            lightboxGallery = null;
+          }, 300);
+          if (lastFocused && typeof lastFocused.focus === "function")
+            lastFocused.focus();
+        }
+
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightboxEl.addEventListener("click", (e) => {
+          if (e.target === lightboxEl) closeLightbox();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeLightbox();
+        });
+      })();
+    </script>
+  </body>
+</html>
