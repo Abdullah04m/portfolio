@@ -176,6 +176,9 @@
       /* ============ NAV ============ */
       .nav {
         position: fixed;
+        width:100%;
+        max-width:100vw;
+        overflow-x:clip;
         top: 0;
         left: 0;
         right: 0;
@@ -191,6 +194,7 @@
         border-bottom: 1px solid var(--border-soft);
       }
       .nav__inner {
+        width:100%;
         max-width: var(--container);
         margin: 0 auto;
         padding: 0 var(--space-3);
@@ -1149,6 +1153,9 @@
           display: none;
         }
         .nav__links {
+          box-sizing:border-box;
+          width:100%;
+          max-width:100%;
           /* position: absolute within the position: fixed .nav parent —
              visually identical to fixed, but avoids the iOS Safari bug where
              transform on a position:fixed element causes viewport repaints. */
