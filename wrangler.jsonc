@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "abdullah",
+  "compatibility_date": "2026-07-07",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "Abdullah Moragaa"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
