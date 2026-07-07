@@ -68,6 +68,7 @@
       }
       html {
         scroll-behavior: smooth;
+        overflow-x: hidden; /* prevents iOS Safari BFC width bug when body has fixed+transform children */
       }
       body {
         background: var(--bg);
@@ -76,7 +77,7 @@
         font-size: 16px;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
+        /* overflow-x intentionally removed from body — set on html instead */
       }
       img {
         max-width: 100%;
@@ -1148,8 +1149,11 @@
           display: none;
         }
         .nav__links {
-          position: fixed;
-          top: 68px;
+          /* position: absolute within the position: fixed .nav parent —
+             visually identical to fixed, but avoids the iOS Safari bug where
+             transform on a position:fixed element causes viewport repaints. */
+          position: absolute;
+          top: 100%; /* sits flush below the 68px nav bar */
           left: 0;
           right: 0;
           background: var(--bg-soft);
@@ -2564,7 +2568,16 @@
 
           lightboxEl.classList.add("is-open");
           lightboxEl.setAttribute("aria-hidden", "false");
-          document.body.style.overflow = "hidden";
+          /* --- Scroll lock (cross-browser, incl. iOS Safari) ---
+             Setting overflow:hidden on body is ignored by iOS Safari and causes
+             a viewport-width repaint when removed. The correct approach is to
+             fix the body in place, save/restore the scroll position manually. */
+          const _ly = window.scrollY;
+          document.body.dataset.lbScrollY = _ly;
+          document.body.style.position = "fixed";
+          document.body.style.top = "-" + _ly + "px";
+          document.body.style.width = "100%";
+          document.body.style.overflowY = "scroll"; /* prevents layout shift from scrollbar disappearing */
           requestAnimationFrame(() => galleryRoot.focus());
         }
 
@@ -2572,7 +2585,14 @@
           if (!lightboxEl.classList.contains("is-open")) return;
           lightboxEl.classList.remove("is-open");
           lightboxEl.setAttribute("aria-hidden", "true");
-          document.body.style.overflow = "";
+          /* --- Restore scroll position --- */
+          const _savedLy = parseInt(document.body.dataset.lbScrollY || "0", 10);
+          document.body.style.position = "";
+          document.body.style.top = "";
+          document.body.style.width = "";
+          document.body.style.overflowY = "";
+          delete document.body.dataset.lbScrollY;
+          window.scrollTo(0, _savedLy);
           setTimeout(() => {
             lightboxStage.innerHTML = "";
             lightboxGallery = null;
