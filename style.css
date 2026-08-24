@@ -27,9 +27,9 @@
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
-  --space-4: 2.5rem;
-  --space-5: 4rem;
-  --space-6: 6.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
 }
 
 /* ============ RESET ============ */
@@ -420,6 +420,18 @@ h3 {
   pointer-events: none;
 }
 .avatar{width:140px;height:140px;min-width:140px;min-height:140px;max-width:140px;max-height:140px;flex:0 0 140px;aspect-ratio:1/1;box-sizing:border-box;border-radius:50%;overflow:hidden;background:linear-gradient(155deg,var(--surface-2),var(--bg-soft));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2rem;color:var(--accent);position:relative;}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.avatar__fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
 .about__bio {
   color: var(--text-muted);
   font-size: 1.02rem;
