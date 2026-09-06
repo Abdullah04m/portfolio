@@ -968,6 +968,50 @@ h3 {
   margin-top: 0.1rem;
 }
 
+/* ============ BEFORE / AFTER ============ */
+.ba-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.ba-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.ba-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.ba-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+}
+.ba-item figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-faint);
+  text-align: center;
+}
+.ba-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.15rem;
+}
+@media (max-width: 480px) {
+  .ba-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ============ WORK DISCLAIMER ============ */
 .work-disclaimer {
   font-family: var(--font-mono);
